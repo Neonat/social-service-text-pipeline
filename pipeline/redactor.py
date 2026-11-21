@@ -1,6 +1,5 @@
 from presidio_analyzer import AnalyzerEngine, PatternRecognizer, Pattern
 from presidio_anonymizer import AnonymizerEngine
-from presidio_anonymizer.entities import OperatorConfig
 
 from pipeline.models import PiiEntity, RedactedText
 
@@ -30,7 +29,6 @@ def redact(text: str) -> RedactedText:
     anonymized = _anonymizer.anonymize(
         text=text,
         analyzer_results=results,
-        operators={"DEFAULT": OperatorConfig("replace", {"new_value": "<{entity_type}>"})},
     )
 
     entities = [

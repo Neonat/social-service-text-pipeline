@@ -5,6 +5,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
 
+import scipy.special
+
 
 class KeywordEscalationTests(unittest.TestCase):
     def setUp(self):
