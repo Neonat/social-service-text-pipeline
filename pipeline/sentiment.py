@@ -86,7 +86,7 @@ def analyse(text: str) -> SentimentResult:
 
     # Tier 1 keyword check
     for keyword in TIER1_KEYWORDS:
-        if keyword in stripped:
+        if _strip_punctuation(keyword) in stripped:
             raw = _sentiment_pipe(text)
             while isinstance(raw, list):
                 raw = raw[0]
